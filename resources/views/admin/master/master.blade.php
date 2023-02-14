@@ -14,10 +14,8 @@
   <!-- Nucleo Icons -->
   <link href="admin/assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="admin/assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
   <script src="https://kit.fontawesome.com/349ee9c857.js" crossorigin="anonymous"></script>
   <link href="admin/assets/css/nucleo-svg.css" rel="stylesheet" />
-  <!-- CSS Files -->
   <link id="pagestyle" href="admin/assets/css/corporate-ui-dashboard.css?v=1.0.0" rel="stylesheet" />
 </head>
 
