@@ -19,10 +19,12 @@ return new class extends Migration
             $table->string('ville');
             $table->string('type');
             $table->string('description');
-            $table->integer('companie_id')->unsigned();
-            $table->foreign('companie_id')->references('id')->on('companies')->onDelete('cascade');
-            $table->integer('categorie_id')->unsigned();
-            $table->foreign('categorie_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->unsignedBigInteger('company_id')->unsigned();
+            $table->foreign('company_id')->references('id')->on('companies')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('categorie_id')->unsigned();
+            $table->foreign('categorie_id')->references('id')->on('categories')
+                ->onDelete('cascade');
             $table->string('salaire');
             $table->string('duration');
             $table->string('qualification_requirement');
