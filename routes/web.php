@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('admin.about');
-})->name('admin.about');
+    return view('company.index');
+});

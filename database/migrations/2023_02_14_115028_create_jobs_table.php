@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('duration');
             $table->string('qualification_requirement');
             $table->string('niveau_etudes');
+            $table->integer('visits')->default(0);
             $table->timestamps();
         });
     }
