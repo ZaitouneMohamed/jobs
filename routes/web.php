@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\langController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,5 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('company.index');
 });
+
+Route::get('lang/change/{lang}', [langcontroller::class,'change'])->name('changeLang');
