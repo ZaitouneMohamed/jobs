@@ -1,27 +1,45 @@
-<!doctype html>
-<html lang="en">
+<!--
+=========================================================
+* Material Kit 2 - v3.0.4
+=========================================================
+
+* Product Page:  https://www.creative-tim.com/product/material-kit
+* Copyright 2022 Creative Tim (https://www.creative-tim.com)
+* Coded by www.creative-tim.com
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
-    <title>Hello, world!</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="landing/assets/img/favicon.png">
+    <title>
+        Material Kit 2 by Creative Tim
+    </title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!-- Material Kit CSS -->
-    <link href="landing/assets/css/material-kit.css?v=3.0.0" rel="stylesheet" />
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+    <!-- Nucleo Icons -->
+    <link href="landing/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="landing/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- CSS Files -->
+    <link id="pagestyle" href="landing/assets/css/material-kit.css?v=3.0.4" rel="stylesheet" />
 </head>
 
-<body>
+<body class="about-us bg-gray-200">
     <!-- Navbar Transparent -->
-    <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent">
+    <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3  navbar-transparent ">
         <div class="container">
             <a class="navbar-brand  text-white " href="https://demos.creative-tim.com/material-kit/presentation"
                 rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
@@ -39,91 +57,68 @@
             <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0 ms-lg-12 ps-lg-5" id="navigation">
                 <ul class="navbar-nav navbar-nav-hover ms-auto">
                     <li class="nav-item dropdown dropdown-hover mx-2 ms-lg-6">
-                        <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages2"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center"
+                            id="dropdownMenuPages8" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
                             Pages
                             <img src="landing/assets/img/down-arrow-white.svg" alt="down-arrow"
-                                class="arrow ms-auto ms-md-2 d-lg-block d-none">
+                                class="arrow ms-2 d-lg-block d-none">
                             <img src="landing/assets/img/down-arrow-dark.svg" alt="down-arrow"
-                                class="arrow ms-auto ms-md-2 d-lg-none d-block">
+                                class="arrow ms-2 d-lg-none d-block">
                         </a>
-                    </li>
-
-                    <li class="nav-item dropdown dropdown-hover mx-2">
-                        <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuBlocks"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="material-icons opacity-6 me-2 text-md">view_day</i>
-                            Sections
-                            <img src="landing/assets/img/down-arrow-white.svg" alt="down-arrow"
-                                class="arrow ms-auto ms-md-2 d-lg-block d-none">
-                            <img src="landing/assets/img/down-arrow-dark.svg" alt="down-arrow"
-                                class="arrow ms-auto ms-md-2 d-lg-none d-block">
-                        </a>
-                    </li>
-
-                    <li class="nav-item dropdown dropdown-hover mx-2">
-                        <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuDocs"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="material-icons opacity-6 me-2 text-md">article</i>
-                            Docs
-                            <img src="landing/assets/img/down-arrow-white.svg" alt="down-arrow"
-                                class="arrow ms-auto ms-md-2 d-lg-block d-none">
-                            <img src="landing/assets/img/down-arrow-dark.svg" alt="down-arrow"
-                                class="arrow ms-auto ms-md-2 d-lg-none d-block">
-                        </a>
-                    </li>
-
-                    <li class="nav-item ms-lg-auto my-auto ms-3 ms-lg-0 mt-2 mt-lg-0">
-                        <a href="https://www.creative-tim.com/product/material-kit"
-                            class="btn btn-sm  bg-gradient-primary mb-0 me-1 mt-2 mt-md-0">Free Download</a>
-                    </li>
-                    <div class="dropdown">
-                        <a href="#" class="btn bg-gradient-dark dropdown-toggle " data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
-                            <img src="https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/icons/flags/US.png" /> Flags
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                            <li>
-                                <a class="dropdown-item" href="http://127.0.0.1:8000/lang/change/en">
-                                  <img src="https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/icons/flags/DE.png" /> en
+                        <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3"
+                            aria-labelledby="dropdownMenuPages8">
+                            <div class="d-none d-lg-block">
+                                <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
+                                    Landing Pages
+                                </h6>
+                                <a href="landing/pages/about-us.html" class="dropdown-item border-radius-md">
+                                    <span>About Us</span>
                                 </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                  <img src="https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/icons/flags/GB.png" /> English
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                  <img src="https://demos.creative-tim.com/test/material-dashboard-pro/assets/img/icons/flags/BR.png" /> Brasil
-                                </a>
-                            </li>
-                        </ul>
-                      </div>
+                            </div>
+
+                        </div>
+                    </li>
+                    <select class="form-control changeLang text-white">
+                        <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}
+                            style="background:blue">English</option>
+                        <option value="ar" {{ session()->get('locale') == 'ar' ? 'selected' : '' }}
+                            style="background:blue">arabic</option>
+                    </select>
+                    {{-- <li class="nav-item my-auto ms-3 ms-lg-0">
+                        <a href="https://www.creative-tim.com/product/material-kit-pro"
+                            class="btn btn-sm  bg-white  mb-0 me-1 mt-2 mt-md-0">Upgrade to Pro</a>
+                    </li> --}}
                 </ul>
             </div>
         </div>
     </nav>
     <!-- End Navbar -->
-
-
-    <div class="page-header min-vh-80"
-        style="background-image: url('https://images.unsplash.com/photo-1630752708689-02c8636b9141?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2490&q=80')">
-        <span class="mask bg-gradient-dark opacity-6"></span>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 mx-auto">
-                    <div class="text-center">
-                        <h1 class="text-white">{{ __('welcome.title') }}</h1>
-                        <h3 class="text-white">Subtitle</h3>
+    <!-- -------- START HEADER 7 w/ text and video ------- -->
+    <header class="bg-gradient-dark">
+        <div class="page-header min-vh-75" style="background-image: url('landing/assets/img/bg9.jpg');">
+            <span class="mask bg-gradient-dark opacity-6"></span>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center mx-auto my-auto">
+                        <h1 class="text-white">{{__('welcome.title')}}</h1>
+                        <p class="lead mb-4 text-white opacity-8">We’re constantly trying to express ourselves and
+                            actualize our dreams. If you have the opportunity to play this game</p>
+                        <button type="submit" class="btn bg-white text-dark">Create Account</button>
+                        <h6 class="text-white mb-2 mt-5">Find us on</h6>
+                        <div class="d-flex justify-content-center">
+                            <a href="javascript:;"><i class="fab fa-facebook text-lg text-white me-4"></i></a>
+                            <a href="javascript:;"><i class="fab fa-instagram text-lg text-white me-4"></i></a>
+                            <a href="javascript:;"><i class="fab fa-twitter text-lg text-white me-4"></i></a>
+                            <a href="javascript:;"><i class="fab fa-google-plus text-lg text-white"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
-        @yield('content')
-    </div>
+    </header>
+    <!-- -------- END HEADER 7 w/ text and video ------- -->
+    @yield("content")
     <footer class="footer pt-5 mt-5">
         <div class="container">
             <div class=" row">
@@ -137,8 +132,7 @@
                     <div>
                         <ul class="d-flex flex-row ms-n3 nav">
                             <li class="nav-item">
-                                <a class="nav-link pe-1" href="https://www.facebook.com/CreativeTim/"
-                                    target="_blank">
+                                <a class="nav-link pe-1" href="https://www.facebook.com/CreativeTim" target="_blank">
                                     <i class="fab fa-facebook text-lg opacity-8"></i>
                                 </a>
                             </li>
@@ -254,14 +248,14 @@
                         <ul class="flex-column ms-n3 nav">
                             <li class="nav-item">
                                 <a class="nav-link"
-                                    href="https://www.creative-tim.com/knowledge-center/terms-of-service/"
+                                    href="https://www.creative-tim.com/knowledge-center/terms-of-service"
                                     target="_blank">
                                     Terms & Conditions
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link"
-                                    href="https://www.creative-tim.com/knowledge-center/privacy-policy/"
+                                    href="https://www.creative-tim.com/knowledge-center/privacy-policy"
                                     target="_blank">
                                     Privacy Policy
                                 </a>
@@ -288,7 +282,110 @@
             </div>
         </div>
     </footer>
+    <!--   Core JS Files   -->
+    <script src="landing/assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="landing/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+    <script src="landing/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <!--  Plugin landingr TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
+    <script src="landing/assets/js/plugins/countup.min.js"></script>
+    <!--  Plugin landingr Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+    <script src="landing/assets/js/plugins/parallax.min.js"></script>
+    <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+    <script src="landing/assets/js/material-kit.min.js?v=3.0.4" type="text/javascript"></script>
+    <script>
+        // get the element to animate
+        var element = document.getElementById('count-stats');
+        var elementHeight = element.clientHeight;
+
+        // listen for scroll event and call animate function
+
+        document.addEventListener('scroll', animate);
+
+        // check if element is in view
+        function inView() {
+            // get window height
+            var windowHeight = window.innerHeight;
+            // get number of pixels that the document is scrolled
+            var scrollY = window.scrollY || window.pageYOffset;
+            // get current scroll position (distance from the top of the page to the bottom of the current viewport)
+            var scrollPosition = scrollY + windowHeight;
+            // get element position (distance from the top of the page to the bottom of the element)
+            var elementPosition = element.getBoundingClientRect().top + scrollY + elementHeight;
+
+            // is scroll position greater than element position? (is element in view?)
+            if (scrollPosition > elementPosition) {
+                return true;
+            }
+
+            return false;
+        }
+
+        var animateComplete = true;
+        // animate element when it is in view
+        function animate() {
+
+            // is element in view?
+            if (inView()) {
+                if (animateComplete) {
+                    if (document.getElementById('state1')) {
+                        const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+                        if (!countUp.error) {
+                            countUp.start();
+                        } else {
+                            console.error(countUp.error);
+                        }
+                    }
+                    if (document.getElementById('state2')) {
+                        const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+                        if (!countUp1.error) {
+                            countUp1.start();
+                        } else {
+                            console.error(countUp1.error);
+                        }
+                    }
+                    if (document.getElementById('state3')) {
+                        const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+                        if (!countUp2.error) {
+                            countUp2.start();
+                        } else {
+                            console.error(countUp2.error);
+                        };
+                    }
+                    animateComplete = false;
+                }
+            }
+        }
+
+        if (document.getElementById('typed')) {
+            var typed = new Typed("#typed", {
+                stringsElement: '#typed-strings',
+                typeSpeed: 90,
+                backSpeed: 90,
+                backDelay: 200,
+                startDelay: 500,
+                loop: true
+            });
+        }
+    </script>
+    <script>
+        if (document.getElementsByClassName('page-header')) {
+            window.onscroll = debounce(function() {
+                var scrollPosition = window.pageYOffset;
+                var bgParallax = document.querySelector('.page-header');
+                var oVal = (window.scrollY / 3);
+                bgParallax.style.transform = 'translate3d(0,' + oVal + 'px,0)';
+            }, 6);
+        }
+    </script>
+    <script type="text/javascript">
+        var url = "{{ route('changeLang') }}";
+        $(".changeLang").change(function(){
+            window.location.href = url + "?lang="+ $(this).val();
+        });
+    
+    </script>
 </body>
-@yield('scripts')
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
 </html>

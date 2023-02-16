@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\App;
 
 class langController extends Controller
 {
-    public function change($lang) {
-        App::setLocale($lang);
-        session()->put('locale', $lang);
+    public function change(Request $request ) {
+        App::setLocale($request->lang);
+        session()->put('locale', $request->lang);
         return redirect()->back();
     }
 }

@@ -22,4 +22,6 @@ Route::get('/about', function () {
     return view('company.index');
 });
 
-Route::get('lang/change/{lang}', [langcontroller::class,'change'])->name('changeLang');
+Route::get('lang/change', [langcontroller::class,'change'])->name('changeLang');
+
+
