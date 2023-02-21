@@ -1,15 +1,3 @@
-<!--
-=========================================================
-* Material Kit 2 - v3.0.4
-=========================================================
-
-* Product Page:  https://www.creative-tim.com/product/material-kit
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
@@ -43,7 +31,7 @@
         <div class="container">
             <a class="navbar-brand  text-white " href="https://demos.creative-tim.com/material-kit/presentation"
                 rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom" target="_blank">
-                Material Kit 2
+                Hunter Job
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
@@ -384,7 +372,7 @@
         $(".changeLang").change(function(){
             window.location.href = url + "?lang="+ $(this).val();
         });
-    
+
     </script>
 </body>
 
