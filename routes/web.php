@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\langController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group(function() {
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+});
+
+
+
+
+Route::get('lang/change', [langController::class,'change'])->name('changeLang');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
