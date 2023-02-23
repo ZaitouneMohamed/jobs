@@ -33,8 +33,9 @@
                     <a href="404.html" class="dropdown-item">404</a>
                 </div>
             </div>
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
+            @include("lang")
         </div>
+        
         <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
     </div>
 </nav>

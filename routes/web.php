@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/h', function () {
+Route::get('/', function () {
     return view('job.index');
 });
 
@@ -35,7 +35,7 @@ Route::middleware(['auth'])->name('admin.')->prefix('adminn')->group(function() 
 
 
 
-Route::get('lang/change', [langController::class,'change'])->name('changeLang');
+Route::get('lang', [langController::class,'change'])->name('changeLang');
 
 
 Route::get('/dashboard', function () {
