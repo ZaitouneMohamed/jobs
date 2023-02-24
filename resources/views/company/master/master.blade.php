@@ -5,10 +5,12 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     @livewireStyles
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <title>Admin</title>
     @yield("links")
@@ -19,6 +21,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+        <link href="dashboardvendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="{{ asset('dashboard/css/sb-admin-2.min.css') }} " rel="stylesheet">
@@ -59,23 +62,11 @@
                 Interface
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            @can("add accounts")
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                        aria-expanded="true" aria-controls="collapseTwo">
-                        <i class="fa-light fa-user"></i>
-                        <span>All Users</span>
-                    </a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="{{route('admin.super_admins')}}">Super Admins</a>
-                            <a class="collapse-item" href="{{route('admin.users')}}">Users</a>
-                            <a class="collapse-item" href="{{route('admin.admins')}}">Admins</a>
-                        </div>
-                    </div>
-                </li>
-            @endcan
+            <li class="nav-item active">
+                <a class="nav-link" href="{{route('fournisseur.company')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>my companys</span></a>
+            </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
@@ -243,8 +234,10 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
+                <div class="container">
 
-                @yield("content")
+                    @yield("content")
+                </div>
                 <!-- /.container-fluid -->
 
             </div>
@@ -298,7 +291,7 @@
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('dashboard/vendor/jquery/jquery.min.js') }} "></script>
     <script src="{{ asset('dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
+    <script src="dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('dashboard/vendor/jquery-easing/jquery.easing.min.js') }} "></script>
 

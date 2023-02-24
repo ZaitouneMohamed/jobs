@@ -26,10 +26,13 @@ Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group
     });
 });
 
-Route::middleware(['auth','role:fournisseur'])->name('admin.')->prefix('is-admin')->group(function() {
+Route::middleware(['auth','role:fournisseur'])->name('fournisseur.')->prefix('is-admin')->group(function() {
     Route::get('/', function () {
         return view('company.index');
     });
+    Route::get('/company', function () {
+        return view('company.company');
+    })->name('company');
 });
 
 
