@@ -26,7 +26,7 @@ Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group
     });
 });
 
-Route::middleware(['auth'])->name('admin.')->prefix('adminn')->group(function() {
+Route::middleware(['auth','role:fournisseur'])->name('admin.')->prefix('is-admin')->group(function() {
     Route::get('/', function () {
         return view('company.index');
     });

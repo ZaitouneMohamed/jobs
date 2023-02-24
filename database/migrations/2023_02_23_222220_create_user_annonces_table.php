@@ -13,16 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('job_users', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('user_id')->unsigned();
+        Schema::create('user_annonces', function (Blueprint $table) {
+            $table->foreignId('user_id')->unsigned();
 
-            $table->unsignedBigInteger('job_id')->unsigned();
-
+            $table->foreignId('annonce_id')->unsigned();
+        
             $table->foreign('user_id')->references('id')->on('users')
+        
                 ->onDelete('cascade');
-
-            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
+        
+            $table->foreign('annonce_id')->references('id')->on('annonces')
+        
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -34,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job_users');
+        Schema::dropIfExists('user_annonces');
     }
 };

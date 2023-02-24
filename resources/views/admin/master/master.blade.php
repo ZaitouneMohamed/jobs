@@ -65,9 +65,18 @@
                             profile
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item text-center">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link style="color: black ; text-align: center" :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </form>
+                        {{-- <a href="#" class="dropdown-item text-center">
                             log out
-                        </a>
+                        </a> --}}
                     </div>
                 </li>
             </ul>
