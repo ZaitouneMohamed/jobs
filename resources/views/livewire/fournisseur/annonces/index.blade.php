@@ -35,7 +35,7 @@
                                 <td>{{$item->title}}</td>
                                 <td>{{$item->nature}}</td>
                                 <td>{{$item->salary}}</td>
-                                <td>{{$item->description}}</td>
+                                <td>{{Str::limit($item->description, 20, '...') }}</td>
                                 <td>{{$item->company->name}}</td>
                                 <td>{{$item->categorie->name}}</td>
                                 <td>{{$item->responsibility}}</td>

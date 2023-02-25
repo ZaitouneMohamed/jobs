@@ -16,10 +16,10 @@
                 </div>
 
                 <div class="mb-5">
-                    <h4 class="mb-3">{{$job->description}}</h4>
-                    <p>Dolor justo tempor duo ipsum accusam rebum gubergren erat. Elitr stet dolor vero clita labore gubergren. Kasd sed ipsum elitr clita rebum ut sea diam tempor. Sadipscing nonumy vero labore invidunt dolor sed, eirmod dolore amet aliquyam consetetur lorem, amet elitr clita et sed consetetur dolore accusam. Vero kasd nonumy justo rebum stet. Ipsum amet sed lorem sea magna. Rebum vero dolores dolores elitr vero dolores magna, stet sea sadipscing stet et. Est voluptua et sanctus at sanctus erat vero sed sed, amet duo no diam clita rebum duo, accusam tempor takimata clita stet nonumy rebum est invidunt stet, dolor.</p>
+                    <h4 class="mb-3">Description</h4>
+                    <p>{{$job->description}}</p>
                     <h4 class="mb-3">Responsibility</h4>
-                    <p>Magna et elitr diam sed lorem. Diam diam stet erat no est est. Accusam sed lorem stet voluptua sit sit at stet consetetur, takimata at diam kasd gubergren elitr dolor</p>
+                    <p>{{$job->responsibility}}</p>
                     <ul class="list-unstyled">
                         <li><i class="fa fa-angle-right text-primary me-2"></i>Dolor justo tempor duo ipsum accusam</li>
                         <li><i class="fa fa-angle-right text-primary me-2"></i>Elitr stet dolor vero clita labore gubergren</li>
@@ -28,7 +28,7 @@
                         <li><i class="fa fa-angle-right text-primary me-2"></i>Diam diam stet erat no est est</li>
                     </ul>
                     <h4 class="mb-3">Qualifications</h4>
-                    <p>Magna et elitr diam sed lorem. Diam diam stet erat no est est. Accusam sed lorem stet voluptua sit sit at stet consetetur, takimata at diam kasd gubergren elitr dolor</p>
+                    <p>{{$job->qualification}}</p>
                     <ul class="list-unstyled">
                         <li><i class="fa fa-angle-right text-primary me-2"></i>Dolor justo tempor duo ipsum accusam</li>
                         <li><i class="fa fa-angle-right text-primary me-2"></i>Elitr stet dolor vero clita labore gubergren</li>
@@ -68,12 +68,12 @@
             <div class="col-lg-4">
                 <div class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
                     <h4 class="mb-4">Job Summery</h4>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Published On: 01 Jan, 2045</p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: 123 Position</p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: Full Time</p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: $123 - $456</p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Location: New York, USA</p>
-                    <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Date Line: 01 Jan, 2045</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Published {{$job->created_at}}</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: {{$job->visits}} Position</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: {{$job->nature}}</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: ${{$job->salary}}</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Location: {{$job->company->description}}</p>
+                    <p class="m-0"><i class="fa fa-angle-right text-primary me-2"></i>Duration: {{$job->duration}} mois</p>
                 </div>
                 <div class="bg-light rounded p-5 wow slideInUp" data-wow-delay="0.1s">
                     <h4 class="mb-4">Company Detail</h4>
