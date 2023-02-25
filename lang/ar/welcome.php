@@ -3,6 +3,6 @@
 return [
 
 
-    'title' => 'welcome in arabic'
+    'title' => 'مرحبا بك'
 
 ];

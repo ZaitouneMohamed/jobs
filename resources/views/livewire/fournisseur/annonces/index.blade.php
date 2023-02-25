@@ -14,24 +14,38 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
-                            <th>adresse</th>
-                            <th>user</th>
-                            <th>contact info</th>
-                            <th>action</th>
+                            <th>title</th>
+                            <th>nature</th>
+                            <th>salary</th>
+                            <th>description</th>
+                            <th>company</th>
+                            <th>categorie</th>
+                            <th>responsibility</th>
+                            <th>qualification</th>
+                            <th>duration</th>
+                            <th>niveau d'etudes</th>
+                            <th>visits</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($companys as $item)
+                        @foreach ($annonces as $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->adresse}}</td>
-                                <td>{{$item->user->name}}</td>
-                                <td>{{$item->contact_info}}</td>
+                                <td>{{$item->title}}</td>
+                                <td>{{$item->nature}}</td>
+                                <td>{{$item->salary}}</td>
+                                <td>{{$item->description}}</td>
+                                <td>{{$item->company->name}}</td>
+                                <td>{{$item->categorie->name}}</td>
+                                <td>{{$item->responsibility}}</td>
+                                <td>{{$item->qualification}}</td>
+                                <td>{{$item->duration}}</td>
+                                <td>{{$item->niveau_etude}}</td>
+                                <td>{{$item->visits}}</td>
                                 <td>61</td>
                             </tr>
-                        @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -46,15 +60,14 @@
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">nature :</label>
                         <select class="form-select" wire:model="nature" aria-label="Default select example">
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="Full time">Full time</option>
+                            <option value="Part time">Part time</option>
                         </select>
                         @error('nature') <span class="test text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Salary :</label>
-                        <input type="text" class="form-control" wire:model="salary">
+                        <input type="number" class="form-control" wire:model="salary">
                         @error('salary') <span class="test text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="mb-3">
@@ -92,7 +105,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">duration :</label>
-                        <input type="text" class="form-control" wire:model="duration">
+                        <input type="number" class="form-control" wire:model="duration">
                         @error('duration') <span class="test text-danger">{{ $message }}</span> @enderror
                     </div>
                     <div class="mb-3">

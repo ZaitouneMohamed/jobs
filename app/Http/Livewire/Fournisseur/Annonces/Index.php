@@ -17,7 +17,24 @@ class Index extends Component
 
     public function add() {
         $this->validate();
+        annonce::create([
+            "title" => $this->title,
+            "nature" => $this->nature,
+            "salary" => $this->salary,
+            "description" => $this->description,
+            "company_id" => $this->company,
+            "categorie_id" => $this->categorie,
+            "responsibility" => $this->responsibility,
+            "qualification" => $this->qualification,
+            "duration" => $this->duration,
+            "niveau_etude" => $this->etudes,
+            "user_id" => auth()->user()->id
+        ]);
+        $this->get_annonces();
+
     }
+
+
 
 
     protected $rules = [
