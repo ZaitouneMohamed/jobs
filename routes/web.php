@@ -24,6 +24,9 @@ Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group
     Route::get('/', function () {
         return view('admin.index');
     });
+    Route::get('categories', function () {
+        return view('admin.categories');
+    })->name('categories');
 });
 
 Route::middleware(['auth','role:fournisseur'])->name('fournisseur.')->prefix('is-admin')->group(function() {

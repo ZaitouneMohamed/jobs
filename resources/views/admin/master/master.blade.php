@@ -9,13 +9,17 @@
     <title>AdminLTE 3 | Dashboard 3</title>
 
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="assets/adminlte/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{asset('assets/adminlte/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- IonIcons -->
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     @yield('head_links')
     @yield('style')
-    <link rel="stylesheet" href="assets/adminlte/dist/css/adminlte.min.css">
+    @livewireStyles
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <link rel="stylesheet" href="{{asset('assets/adminlte/dist/css/adminlte.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -28,12 +32,6 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
                 </li>
             </ul>
 
@@ -56,7 +54,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         {{ auth()->user()->name }}
-                        
+
                         {{-- <i class="far fa-comments"></i> --}}
           {{-- <span class="badge badge-danger navbar-badge">3</span> --}}
                     </a>
@@ -87,7 +85,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="assets/adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+                <img src="{{asset('assets/adminlte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">AdminLTE 3</span>
             </a>
@@ -97,11 +95,11 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="assets/adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
+                        <img src="{{asset('assets/adminlte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2"
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">{{auth()->user()->name}}</a>
                     </div>
                 </div>
 
@@ -111,41 +109,12 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item has-treeview menu-open">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Dashboard
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="./index.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v1</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v2</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index3.html" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v3</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
+                            <a href="{{route('admin.categories')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Widgets
-                                    <span class="right badge badge-danger">New</span>
+                                    categories
+                                    {{-- <span class="right badge badge-danger">New</span> --}}
                                 </p>
                             </a>
                         </li>
@@ -631,22 +600,24 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        @yield('content')
+
+            @yield('content')
         <!-- ./wrapper -->
 
         <!-- REQUIRED SCRIPTS -->
 
         <!-- jQuery -->
-        <script src="assets/adminlte/plugins/jquery/jquery.min.js"></script>
+        <script src="{{asset('assets/adminlte/plugins/jquery/jquery.min.js')}}"></script>
         <!-- Bootstraassets/adminlte/p -->
-        <script src="assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="{{asset('assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <!-- AdminLTEassets/adminlte/ -->
-        <script src="assets/adminlte/dist/js/adminlte.js"></script>
-        <!-- OPTIONALassets/adminlte/ SCRIPTS -->
-        <script src="assets/adminlte/plugins/chart.js/Chart.min.js"></script>
-        <script src="assets/adminlte/dist/js/demo.js"></script>
-        <script src="assets/adminlte/dist/js/pages/dashboard3.js"></script>
+        <script src="{{asset('assets/adminlte/dist/js/adminlte.js')}}"></script>
+        <script src="{{asset('assets/adminlte/plugins/chart.js/Chart.min.js')}}"></script>
+        <script src="{{asset('assets/adminlte/dist/js/demo.js')}}"></script>
+        <script src="{{asset('assets/adminlte/dist/js/pages/dashboard3.js')}}"></script>
         @yield('scripts')
+        @livewireScripts
+
 </body>
 
 </html>
