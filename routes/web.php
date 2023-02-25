@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\job\jobController;
 use App\Http\Controllers\langController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('job.index');
 });
-
+Route::get('job_detail/{id}', [jobController::class , 'job_details'] )->name('job_detail');
 
 Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', function () {
@@ -39,6 +40,7 @@ Route::middleware(['auth','role:fournisseur'])->name('fournisseur.')->prefix('is
     Route::get('/mes-annonces', function () {
         return view('company.annonces.index');
     })->name('annonces.index');
+
 });
 
 

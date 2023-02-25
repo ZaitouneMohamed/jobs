@@ -59,7 +59,7 @@
                                 <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                     <div class="d-flex mb-3">
                                         <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
-                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                        <a class="btn btn-primary" href="{{route('job_detail',$item->id)}}">view job</a>
                                     </div>
                                     <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: {{$item->created_at}}</small>
                                 </div>
@@ -76,17 +76,21 @@
                                     <img class="flex-shrink-0 img-fluid border rounded" src="landing/img/com-logo-5.jpg" alt="" style="width: 80px; height: 80px;">
                                     <div class="text-start ps-4">
                                         <h5 class="mb-3">{{$item->title}}</h5>
-                                        <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
-                                        <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                        <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{$item->company->adresse}}</span>
+                                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$item->nature}}</span>
+                                        <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>${{$item->salary}}</span>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                     <div class="d-flex mb-3">
+                                        @auth
+
                                         <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
-                                        <a class="btn btn-primary" href="">Apply Now</a>
+                                        @endauth
+
+                                        <a class="btn btn-primary" href="{{route('job_detail',$item->id)}}">view job</a>
                                     </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: {{$item->created_at}}</small>
                                 </div>
                             </div>
                         </div>
