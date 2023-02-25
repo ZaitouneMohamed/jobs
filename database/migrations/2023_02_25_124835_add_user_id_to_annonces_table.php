@@ -13,19 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_annonces', function (Blueprint $table) {
-
-            $table->foreignId('annonce_id')->unsigned();
+        Schema::table('annonces', function (Blueprint $table) {
             $table->foreignId('user_id')->unsigned();
 
             $table->foreign('user_id')->references('id')->on('users')
 
                 ->onDelete('cascade');
-
-            $table->foreign('annonce_id')->references('id')->on('annonces')
-
-                ->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
@@ -36,6 +29,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_annonces');
+        Schema::table('annonces', function (Blueprint $table) {
+            //
+        });
     }
 };

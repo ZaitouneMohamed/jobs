@@ -36,6 +36,9 @@ Route::middleware(['auth','role:fournisseur'])->name('fournisseur.')->prefix('is
     Route::get('/company', function () {
         return view('company.company');
     })->name('company');
+    Route::get('/mes-annonces', function () {
+        return view('company.annonces.index');
+    })->name('annonces.index');
 });
 
 
