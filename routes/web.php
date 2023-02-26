@@ -46,6 +46,7 @@ Route::middleware(['auth','role:fournisseur'])->name('fournisseur.')->prefix('is
 Route::middleware(['auth','role:user'])->name('user.')->prefix('user')->group(function() {
     Route::get('/' , [homeController::class , 'index' ])->name('index');
     Route::get('profile' , [homeController::class , 'profile' ])->name('profile');
+    Route::get('edit_profile' , [homeController::class , 'edit_profile' ])->name('profile.edit');
 });
 
 
