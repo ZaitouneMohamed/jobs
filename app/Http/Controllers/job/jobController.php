@@ -22,6 +22,6 @@ class jobController extends Controller
             "user_id" => auth()->user()->id,
             "pending" => '1'
         ]);
-        return redirect
+        return redirect()->route('index');
     }
 }

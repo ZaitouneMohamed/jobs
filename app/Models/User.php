@@ -43,6 +43,11 @@ class User extends Authenticatable
         return $this->hasOne(user_info::class  );
     }
 
+    public function annonces()
+    {
+        return $this->belongsToMany(annonce::class, 'user_annonces');
+    }
+
     /**
      * The attributes that should be cast.
      *

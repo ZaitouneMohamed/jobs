@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('job.index');
-});
+})->name('index');
+
 Route::get('job_detail/{id}', [jobController::class , 'job_details'] )->name('job_detail');
 
 Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group(function() {
@@ -48,6 +49,7 @@ Route::middleware(['auth','role:user'])->name('user.')->prefix('user')->group(fu
     Route::get('profile' , [homeController::class , 'profile' ])->name('profile');
     Route::get('edit_profile' , [homeController::class , 'edit_profile' ])->name('profile.edit');
     Route::post('update_profile' , [homeController::class , 'update_profile' ])->name('profile.update');
+    Route::post('apply_job' , [jobController::class , 'apply_job' ])->name('apply_job');
 });
 
 

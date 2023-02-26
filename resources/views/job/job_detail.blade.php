@@ -62,8 +62,9 @@
                             </div>
                         </div>
                         @else
-                        <form action="">
+                        <form action="{{route('user.apply_job')}}" method="post">
                             @csrf
+                            @method("post")
                             <input type="hidden" name="annonce_id" value="{{$job->id}}">
                             <button class="btn btn-primary w-100" type="submit">Apply Now</button>
                         </form>
