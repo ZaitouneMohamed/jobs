@@ -34,7 +34,7 @@ Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group
 Route::middleware(['auth','role:fournisseur'])->name('fournisseur.')->prefix('is-admin')->group(function() {
     Route::get('/', function () {
         return view('company.index');
-    });
+    })->name('index');
     Route::get('/company', function () {
         return view('company.company');
     })->name('company');
@@ -47,6 +47,7 @@ Route::middleware(['auth','role:user'])->name('user.')->prefix('user')->group(fu
     Route::get('/' , [homeController::class , 'index' ])->name('index');
     Route::get('profile' , [homeController::class , 'profile' ])->name('profile');
     Route::get('edit_profile' , [homeController::class , 'edit_profile' ])->name('profile.edit');
+    Route::post('update_profile' , [homeController::class , 'update_profile' ])->name('profile.update');
 });
 
 

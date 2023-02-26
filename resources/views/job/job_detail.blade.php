@@ -40,7 +40,7 @@
 
                 <div class="">
                     <h4 class="mb-4">Apply For The Job</h4>
-                    <form>
+                    @if (!auth()->user()->info)
                         <div class="row g-3">
                             <div class="col-12 col-sm-6">
                                 <input type="text" class="form-control" placeholder="Your Name">
@@ -61,6 +61,14 @@
                                 <button class="btn btn-primary w-100" type="submit">Apply Now</button>
                             </div>
                         </div>
+                        @else
+                        <form action="">
+                            @csrf
+                            <input type="hidden" name="annonce_id" value="{{$job->id}}">
+                            <button class="btn btn-primary w-100" type="submit">Apply Now</button>
+                        </form>
+                    @endif
+                    <form>
                     </form>
                 </div>
             </div>

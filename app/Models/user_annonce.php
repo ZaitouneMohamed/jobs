@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class user_annonce extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        "annonce_id",
+        "user_id",
+        "favorite",
+        "pending"
+    ];
+
 }

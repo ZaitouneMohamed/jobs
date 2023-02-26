@@ -6,14 +6,14 @@
 <br>
 name : {{auth()->user()->name}} <br>
 email : {{auth()->user()->email}} <br>
-@if (auth()->user()->info)
-    ville : {{auth()->user()->info->ville}}
-    telephone : {{auth()->user()->info->telephone}}
-    sexe : {{auth()->user()->info->sexe}}
-    fonction : {{auth()->user()->info->fonction}}
-    experience : {{auth()->user()->info->experience}}
-    
+@if (isset(auth()->user()->info))
+    ville : {{auth()->user()->info->ville}} <br>
+    telephone : {{auth()->user()->info->telephone}} <br>
+    sexe : {{auth()->user()->info->sexe}} <br>
+    fonction : {{auth()->user()->info->Fonction}} <br>
+    experience : {{auth()->user()->info->experience}} <br>
+
 @else
-    <button class="btn btn-danger">add info</button>
+    <a href="{{route('user.profile.edit')}}" class="btn btn-danger">add info</a>
 @endif
 @endsection
