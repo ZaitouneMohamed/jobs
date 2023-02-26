@@ -20,6 +20,11 @@ class homeController extends Controller
         return view('user.pages.edit_profile');
     }
 
+    public function my_pending_jobs() {
+        $jobs = auth()->user()->annonces;
+        return view('user.pages.pending_jobs',compact('jobs'));
+    }
+
     public function update_profile(Request $request) {
         if (auth()->user()->info) {
             $a = user_info::where('user_id',auth()->user()->id)->take(1);

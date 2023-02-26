@@ -50,6 +50,7 @@ Route::middleware(['auth','role:user'])->name('user.')->prefix('user')->group(fu
     Route::get('edit_profile' , [homeController::class , 'edit_profile' ])->name('profile.edit');
     Route::post('update_profile' , [homeController::class , 'update_profile' ])->name('profile.update');
     Route::post('apply_job' , [jobController::class , 'apply_job' ])->name('apply_job');
+    Route::get('pending_jobs' , [homeController::class , 'my_pending_jobs' ])->name('pending_jobs');
 });
 
 
