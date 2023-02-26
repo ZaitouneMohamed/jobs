@@ -99,7 +99,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('user.profile')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     mon profile
@@ -185,7 +185,9 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            @yield('content')
+            <div class="container">
+                @yield('content')
+            </div>
         </div>
         <!-- ./wrapper -->
 

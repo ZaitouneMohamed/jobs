@@ -3,6 +3,7 @@
 use App\Http\Controllers\job\jobController;
 use App\Http\Controllers\langController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\user\homeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,9 +44,8 @@ Route::middleware(['auth','role:fournisseur'])->name('fournisseur.')->prefix('is
 
 });
 Route::middleware(['auth','role:user'])->name('user.')->prefix('user')->group(function() {
-    Route::get('/', function () {
-        return view('user.index');
-    })->name('index');
+    Route::get('/' , [homeController::class , 'index' ])->name('index');
+    Route::get('profile' , [homeController::class , 'profile' ])->name('profile');
 });
 
 
