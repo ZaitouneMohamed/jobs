@@ -38,6 +38,10 @@ class User extends Authenticatable
         return $this->hasMany(company::class);
     }
 
+    public function info(){
+        return $this->belongsTo(user_info::class);
+    }
+
     /**
      * The attributes that should be cast.
      *

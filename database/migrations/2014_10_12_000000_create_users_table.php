@@ -17,10 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('cv')->nullable();
             $table->integer('active');
-            $table->string('niveau_etudes')->nullable();
-            $table->string('lettre_motivation')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
