@@ -21,6 +21,7 @@
                             <th>company</th>
                             <th>categorie</th>
                             <th>responsibility</th>
+                            <th>pending count</th>
                             <th>qualification</th>
                             <th>duration</th>
                             <th>niveau d'etudes</th>
@@ -39,11 +40,14 @@
                                 <td>{{$item->company->name}}</td>
                                 <td>{{$item->categorie->name}}</td>
                                 <td>{{$item->responsibility}}</td>
+                                <td>{{$item->users->count()}}</td>
                                 <td>{{$item->qualification}}</td>
                                 <td>{{$item->duration}}</td>
                                 <td>{{$item->niveau_etude}}</td>
                                 <td>{{$item->visits}}</td>
-                                <td>61</td>
+                                <td>
+                                    <a href="{{route('fournisseur.user_on_annonce',$item->id)}}" class="btn btn-primary">view users</a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

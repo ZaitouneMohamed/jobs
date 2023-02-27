@@ -25,7 +25,8 @@ class annonce extends Model
         'visits',
     ];
 
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
@@ -34,13 +35,21 @@ class annonce extends Model
         return $this->belongsToMany(User::class, 'user_annonces');
     }
 
-    public function company(){
+    public function userss()
+    {
+        return $this->belongsToMany(User::class, 'user_fav_annonces');
+    }
+
+    public function company()
+    {
         return $this->belongsTo(company::class);
     }
-    public function categorie(){
+    public function categorie()
+    {
         return $this->belongsTo(categorie::class);
     }
-    public function getCreatedAtAttribute($value){
+    public function getCreatedAtAttribute($value)
+    {
         return Carbon::parse($value)->diffForHumans();
     }
 }

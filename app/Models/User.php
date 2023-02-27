@@ -48,6 +48,11 @@ class User extends Authenticatable
         return $this->belongsToMany(annonce::class, 'user_annonces');
     }
 
+    public function fav_annonces()
+    {
+        return $this->belongsToMany(annonce::class, 'user_fav_annonces');
+    }
+
     /**
      * The attributes that should be cast.
      *

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\fournisseur\homeController as FournisseurHomeController;
 use App\Http\Controllers\job\jobController;
 use App\Http\Controllers\langController;
 use App\Http\Controllers\ProfileController;
@@ -42,6 +43,7 @@ Route::middleware(['auth','role:fournisseur'])->name('fournisseur.')->prefix('is
     Route::get('/mes-annonces', function () {
         return view('company.annonces.index');
     })->name('annonces.index');
+    Route::get('/user_on_annonce/{id}' , [FournisseurHomeController::class , 'user_pending_on_job' ])->name('user_on_annonce');
 
 });
 Route::middleware(['auth','role:user'])->name('user.')->prefix('user')->group(function() {

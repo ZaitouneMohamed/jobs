@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\user_annonce;
 use App\Models\user_info;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,9 @@ class homeController extends Controller
 
     public function my_pending_jobs() {
         $jobs = auth()->user()->annonces;
+        // $jobs = user_annonce::all()
+        //             ->where('user_id',auth()->user()->id)
+        //             ->where('pending', '1');
         return view('user.pages.pending_jobs',compact('jobs'));
     }
 
