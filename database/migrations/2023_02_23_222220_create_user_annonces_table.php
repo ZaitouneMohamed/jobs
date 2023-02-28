@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('user_annonces', function (Blueprint $table) {
-
+            $table->id();
             $table->foreignId('annonce_id')->unsigned();
             $table->foreignId('user_id')->unsigned();
 

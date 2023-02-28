@@ -23,9 +23,6 @@ class homeController extends Controller
 
     public function my_pending_jobs() {
         $jobs = auth()->user()->annonces;
-        // $jobs = user_annonce::all()
-        //             ->where('user_id',auth()->user()->id)
-        //             ->where('pending', '1');
         return view('user.pages.pending_jobs',compact('jobs'));
     }
 

@@ -11,9 +11,7 @@ class user_annonce extends Model
 
     protected $fillable = [
         "annonce_id",
-        "user_id",
-        "favorite",
-        "pending"
+        "user_id"
     ];
 
 }

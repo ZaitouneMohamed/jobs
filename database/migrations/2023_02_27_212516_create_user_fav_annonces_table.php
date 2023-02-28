@@ -15,6 +15,16 @@ return new class extends Migration
     {
         Schema::create('user_fav_annonces', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('annonce_id')->unsigned();
+            $table->foreignId('user_id')->unsigned();
+
+            $table->foreign('user_id')->references('id')->on('users')
+
+                ->onDelete('cascade');
+
+            $table->foreign('annonce_id')->references('id')->on('annonces')
+
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -40,37 +40,37 @@
 
                 <div class="">
                     <h4 class="mb-4">Apply For The Job</h4>
-                    @if (!auth()->user()->info)
-                        <div class="row g-3">
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control" placeholder="Your Name">
+                    @auth
+                        @if (!auth()->user()->info)
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Your Name">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="email" class="form-control" placeholder="Your Email">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Portfolio Website">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="file" class="form-control bg-white">
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control" rows="5" placeholder="Coverletter"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100" type="submit">Apply Now</button>
+                                </div>
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="email" class="form-control" placeholder="Your Email">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control" placeholder="Portfolio Website">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="file" class="form-control bg-white">
-                            </div>
-                            <div class="col-12">
-                                <textarea class="form-control" rows="5" placeholder="Coverletter"></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary w-100" type="submit">Apply Now</button>
-                            </div>
-                        </div>
                         @else
-                        <form action="{{route('user.apply_job')}}" method="post">
-                            @csrf
-                            @method("post")
-                            <input type="hidden" name="annonce_id" value="{{$job->id}}">
-                            <button class="btn btn-primary w-100" type="submit">Apply Now</button>
-                        </form>
-                    @endif
-                    <form>
-                    </form>
+                            <form action="{{route('user.apply_job')}}" method="post">
+                                @csrf
+                                @method("post")
+                                <input type="hidden" name="annonce_id" value="{{$job->id}}">
+                                <button class="btn btn-primary w-100" type="submit">Apply Now</button>
+                            </form>
+                        @endif
+                    @endauth
                 </div>
             </div>
 

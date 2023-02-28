@@ -56,13 +56,11 @@
                                 <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                     <div class="d-flex mb-3">
                                         @auth
-
-                                        <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                            <button class="btn btn-light btn-square me-3" wire:click="fav_job({{$item->id}})"><i class="far fa-heart text-primary"></i></button>
                                         @endauth
-
                                         <a class="btn btn-primary" href="{{route('job_detail',$item->id)}}">view job</a>
                                     </div>
-                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: {{$item->created_at}}</small>
+                                    <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Datee Line: {{$item->created_at}}</small>
                                 </div>
                             </div>
                         </div>

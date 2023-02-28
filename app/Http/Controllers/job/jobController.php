@@ -24,4 +24,6 @@ class jobController extends Controller
         ]);
         return redirect()->route('index');
     }
+
+    
 }

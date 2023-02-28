@@ -2,7 +2,8 @@
 
 @section("content")
     my pending jobs
-    {{$jobs->count()}}
+    {{$jobs->count()}} <br>
+    {{auth()->user()->fav_annonces->count()}}
     <div class="row">
           <div class="col-12">
             <div class="card">
@@ -44,9 +45,7 @@
                   </tbody>
                 </table>
               </div>
-              <!-- /.card-body -->
             </div>
-            <!-- /.card -->
           </div>
         </div>
 @endsection
