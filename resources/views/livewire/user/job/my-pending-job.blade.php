@@ -1,4 +1,3 @@
-@section('content')
     <h3> my pending jobs{{ $jobs->count() }} </h3>
     {{-- my farorite jobs count{{ auth()->user()->fav_annonces->count() }} --}}
     <div class="row">
@@ -49,4 +48,4 @@
             </div>
         </div>
     </div>
-@endsection
+    

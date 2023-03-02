@@ -63,13 +63,24 @@
                                 </div>
                             </div>
                         @else
-                            <form action="{{route('user.apply_job')}}" method="post">
-                                @csrf
-                                @method("post")
-                                <input type="hidden" name="annonce_id" value="{{$job->id}}">
-                                <button class="btn btn-primary w-100" type="submit">Apply Now</button>
-                            </form>
+                            @if (\App\Models\user_fav_annonce::where('user_id',auth()->user()->id)->where('annonce_id',$job->id)->count() == 1 )
+                                <h1>you already postuled on this job</h1>
+                            @else    
+                                <form action="{{route('user.apply_job')}}" method="post">
+                                    @csrf
+                                    @method("post")
+                                    <input type="hidden" name="annonce_id" value="{{$job->id}}">
+                                    <button class="btn btn-primary w-100" type="submit">Apply Now</button>
+                                </form>
+                            @endif
                         @endif
+                    @else
+                        <form action="{{route('user.apply_job')}}" method="post">
+                            @csrf
+                            @method("post")
+                            <input type="hidden" name="annonce_id" value="{{$job->id}}">
+                            <button class="btn btn-primary w-100" type="submit">Apply Now</button>
+                        </form>
                     @endauth
                 </div>
             </div>
