@@ -53,6 +53,7 @@ Route::middleware(['auth','role:user'])->name('user.')->prefix('user')->group(fu
     Route::post('update_profile' , [homeController::class , 'update_profile' ])->name('profile.update');
     Route::post('apply_job' , [jobController::class , 'apply_job' ])->name('apply_job');
     Route::get('pending_jobs' , [homeController::class , 'my_pending_jobs' ])->name('pending_jobs');
+    Route::get('favorite_jobs' , [homeController::class , 'my_favorite_jobs' ])->name('favorite_jobs');
 });
 
 

@@ -30,7 +30,13 @@
                                 </div>
                                 <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                     <div class="d-flex mb-3">
-                                        <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
+                                        @auth
+                                            @if (\App\Models\user_fav_annonce::where('user_id',auth()->user()->id)->where('annonce_id',$item->id)->count() == 1 )
+                                                <h1>sry</h1>
+                                            @else
+                                                <button class="btn btn-light btn-square me-3" wire:click="fav_job({{$item->id}})"><i class="far fa-heart text-primary"></i></button>
+                                            @endif
+                                        @endauth
                                         <a class="btn btn-primary" href="{{route('job_detail',$item->id)}}">view job</a>
                                     </div>
                                     <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: {{$item->created_at}}</small>
@@ -56,7 +62,11 @@
                                 <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                     <div class="d-flex mb-3">
                                         @auth
-                                            <button class="btn btn-light btn-square me-3" wire:click="fav_job({{$item->id}})"><i class="far fa-heart text-primary"></i></button>
+                                            @if (\App\Models\user_fav_annonce::where('user_id',auth()->user()->id)->where('annonce_id',$item->id)->count() == 1 )
+                                                <h1>sry</h1>
+                                            @else
+                                                <button class="btn btn-light btn-square me-3" wire:click="fav_job({{$item->id}})"><i class="far fa-heart text-primary"></i></button>
+                                            @endif
                                         @endauth
                                         <a class="btn btn-primary" href="{{route('job_detail',$item->id)}}">view job</a>
                                     </div>

@@ -9,37 +9,43 @@ use Illuminate\Http\Request;
 
 class homeController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('user.index');
     }
 
-    public function profile() {
+    public function profile()
+    {
         return view('user.pages.profile');
     }
 
-    public function edit_profile() {
+    public function edit_profile()
+    {
         return view('user.pages.edit_profile');
     }
 
-    public function my_pending_jobs() {
-        $jobs = auth()->user()->annonces;
-        return view('user.pages.pending_jobs',compact('jobs'));
+    public function my_pending_jobs()
+    {
+        return view('user.pages.pending_jobs');
     }
 
-    public function update_profile(Request $request) {
+    public function my_favorite_jobs()
+    {
+        return view('user.pages.favorite_jobs');
+    }
+
+    public function update_profile(Request $request)
+    {
         if (auth()->user()->info) {
-            $a = user_info::where('user_id',auth()->user()->id)->take(1);
+            $a = user_info::where('user_id', auth()->user()->id)->take(1);
             if ($request->has('cv')) {
                 $cvv = $request->cv;
-                $cv_name = time().'_'.$cvv->getClientOriginalName();
-                $cvv->move(public_path('worker/cv'),$cv_name);
-
-                // unlink(public_path('worker/cv').'/'.$a->cv);
+                $cv_name = time() . '_' . $cvv->getClientOriginalName();
+                $cvv->move(public_path('worker/cv'), $cv_name);
                 $a->update([
                     'cv' => $cv_name
                 ]);
             }
-
             $a->update([
                 "ville" => $request->ville,
                 'telephone' => $request->telephone,
@@ -51,11 +57,10 @@ class homeController extends Controller
                 'lettre' => $request->lettre,
             ]);
             return redirect()->route('user.profile');
-
-        }else {
+        } else {
             $cv = $request->cv;
-            $cv_name = time().'_'.$cv->getClientOriginalName();
-            $cv->move(public_path('worker/cv'),$cv_name);
+            $cv_name = time() . '_' . $cv->getClientOriginalName();
+            $cv->move(public_path('worker/cv'), $cv_name);
             user_info::create([
                 "ville" => $request->ville,
                 'telephone' => $request->telephone,
