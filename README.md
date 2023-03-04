@@ -6,12 +6,13 @@ A job board website is an online platform that connects job seekers with employe
 
 
 ## installation
-1. Run composer install
-2. Run npm install
-3. Run npm run dev
-4. Create a database and update the .env file
-5. Run php artisan migrate --seed
-6. Run php artisan serve
+1. Clone the repository
+2. Run composer install
+3. Run npm install
+4. Run npm run dev
+5. Create a database and update the .env file
+6. Run php artisan migrate --seed
+7. Run php artisan serve
 Login with the following credentials
 
 for admin (/admin)
