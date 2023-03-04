@@ -22,6 +22,10 @@ Route::get('/', function () {
     return view('job.index');
 })->name('index');
 
+Route::get('/job_list', function () {
+    return view('job.joblist');
+})->name('joblist');
+
 Route::get('job_detail/{id}', [jobController::class , 'job_details'] )->name('job_detail');
 
 Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group(function() {
@@ -47,13 +51,15 @@ Route::middleware(['auth','role:fournisseur'])->name('fournisseur.')->prefix('is
 
 });
 Route::middleware(['auth','role:user'])->name('user.')->prefix('user')->group(function() {
-    Route::get('/' , [homeController::class , 'index' ])->name('index');
-    Route::get('profile' , [homeController::class , 'profile' ])->name('profile');
-    Route::get('edit_profile' , [homeController::class , 'edit_profile' ])->name('profile.edit');
-    Route::post('update_profile' , [homeController::class , 'update_profile' ])->name('profile.update');
+    Route::controller(homeController::class)->group(function () {
+        Route::get('/' ,'index')->name('index');
+        Route::get('profile' , 'profile')->name('profile');
+        Route::get('edit_profile' , 'edit_profile')->name('profile.edit');
+        Route::post('update_profile' , 'update_profile')->name('profile.update');
+        Route::get('pending_jobs' , 'my_pending_jobs')->name('pending_jobs');
+        Route::get('favorite_jobs' , 'my_favorite_jobs' )->name('favorite_jobs');
+    });
     Route::post('apply_job' , [jobController::class , 'apply_job' ])->name('apply_job');
-    Route::get('pending_jobs' , [homeController::class , 'my_pending_jobs' ])->name('pending_jobs');
-    Route::get('favorite_jobs' , [homeController::class , 'my_favorite_jobs' ])->name('favorite_jobs');
 });
 
 

@@ -16,7 +16,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="/" class="nav-item nav-link active">Home</a>
+            <a href="/" class="nav-item nav-link">Home</a>
+            <a href="{{route('joblist')}}" class="nav-item nav-link">jobs list</a>
             @auth
                 @if (auth()->user()->hasRole('user'))
                     <a href="{{route('user.index')}}" class="nav-item nav-link">mon compte</a>
