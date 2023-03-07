@@ -1,10 +1,15 @@
+@extends("job.layouts.master")
+
+@section("content")
+
+
 <div class="container-xxl py-5 bg-dark page-header mb-5">
     <div class="container my-5 pt-5 pb-4">
         <h1 class="display-3 text-white mb-3 animated slideInDown">Job List</h1>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb text-uppercase">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                <li class="breadcrumb-item"><a href="#">Search</a></li>
                 <li class="breadcrumb-item text-white active" aria-current="page">Job List</li>
             </ol>
         </nav>
@@ -33,7 +38,6 @@
                                         @auth
                                             @if (\App\Models\user_fav_annonce::where('user_id',auth()->user()->id)->where('annonce_id',$item->id)->count() == 1 )
                                             <button style="background-color: white;border: none"><i class="far fa-heart text-danger"></i></button>
-
                                             @else
                                                 <button class="btn btn-light btn-square me-3" wire:click="fav_job({{$item->id}})"><i class="far fa-heart text-primary"></i></button>
                                             @endif
@@ -46,10 +50,10 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="container">
-                    {{$annonces->links()}}
-                </div>
             </div>
         </div>
     </div>
 </div>
+
+
+@endsection

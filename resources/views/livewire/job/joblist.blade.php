@@ -32,7 +32,7 @@
                                     <div class="d-flex mb-3">
                                         @auth
                                             @if (\App\Models\user_fav_annonce::where('user_id',auth()->user()->id)->where('annonce_id',$item->id)->count() == 1 )
-                                                <h1>sry</h1>
+                                                <button style="background-color: white;border: none"><i class="far fa-heart text-danger"></i></button>
                                             @else
                                                 <button class="btn btn-light btn-square me-3" wire:click="fav_job({{$item->id}})"><i class="far fa-heart text-primary"></i></button>
                                             @endif
@@ -63,7 +63,7 @@
                                     <div class="d-flex mb-3">
                                         @auth
                                             @if (\App\Models\user_fav_annonce::where('user_id',auth()->user()->id)->where('annonce_id',$item->id)->count() == 1 )
-                                                <h1>sry</h1>
+                                                <button style="background-color: white;border: none"><i class="far fa-heart text-danger"></i></button>
                                             @else
                                                 <button class="btn btn-light btn-square me-3" wire:click="fav_job({{$item->id}})"><i class="far fa-heart text-primary"></i></button>
                                             @endif

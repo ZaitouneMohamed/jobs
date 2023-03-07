@@ -63,9 +63,9 @@
                                 </div>
                             </div>
                         @else
-                            @if (\App\Models\user_fav_annonce::where('user_id',auth()->user()->id)->where('annonce_id',$job->id)->count() == 1 )
+                            @if (\App\Models\user_annonce::where('user_id',auth()->user()->id)->where('annonce_id',$job->id)->count() == 1 )
                                 <h1>you already postuled on this job</h1>
-                            @else    
+                            @else
                                 <form action="{{route('user.apply_job')}}" method="post">
                                     @csrf
                                     @method("post")
@@ -89,7 +89,7 @@
                 <div class="bg-light rounded p-5 mb-4 wow slideInUp" data-wow-delay="0.1s">
                     <h4 class="mb-4">Job Summery</h4>
                     <p><i class="fa fa-angle-right text-primary me-2"></i>Published {{$job->created_at}}</p>
-                    <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: {{$job->visits}} Position</p>
+                    <p><i class="fa fa-angle-right text-primary me-2"></i>Vacancy: {{$job->users->count()}} Position</p>
                     <p><i class="fa fa-angle-right text-primary me-2"></i>Job Nature: {{$job->nature}}</p>
                     <p><i class="fa fa-angle-right text-primary me-2"></i>Salary: ${{$job->salary}}</p>
                     <p><i class="fa fa-angle-right text-primary me-2"></i>Location: {{$job->company->description}}</p>
@@ -97,7 +97,9 @@
                 </div>
                 <div class="bg-light rounded p-5 wow slideInUp" data-wow-delay="0.1s">
                     <h4 class="mb-4">Company Detail</h4>
-                    <p class="m-0">Ipsum dolor ipsum accusam stet et et diam dolores, sed rebum sadipscing elitr vero dolores. Lorem dolore elitr justo et no gubergren sadipscing, ipsum et takimata aliquyam et rebum est ipsum lorem diam. Et lorem magna eirmod est et et sanctus et, kasd clita labore.</p>
+                    <p class="m-0">
+                        {{$job->company->contact_info}}
+                    </p>
                 </div>
             </div>
         </div>

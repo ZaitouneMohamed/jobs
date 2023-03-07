@@ -26,7 +26,10 @@ Route::get('/job_list', function () {
     return view('job.joblist');
 })->name('joblist');
 
+
+
 Route::get('job_detail/{id}', [jobController::class , 'job_details'] )->name('job_detail');
+Route::post('job_search', [jobController::class , 'job_search'] )->name('job_search');
 
 Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group(function() {
     Route::get('/', function () {
