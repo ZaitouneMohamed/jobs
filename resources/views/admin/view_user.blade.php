@@ -19,7 +19,7 @@
             <div class="d-flex">
                 @foreach ($user->roles as $role)
                     <div>
-                        <form action="" method="post">
+                        <form action="{{route('admin.remove_role_from_user',$user->id)}}" method="post">
                             @csrf
                             @method("delete")
                             <input type="hidden" name="role_name" value="{{$role->name}}">
@@ -29,7 +29,7 @@
                 @endforeach
             </div>
         @endif
-        <form action="" method="POST">
+        <form action="{{route('admin.assign_role_to_user',$user->id)}}" method="POST">
             @csrf
             @method('POST')
             <label for="" class="for-controle">Add Role To {{$user->name}}</label>
@@ -50,7 +50,7 @@
             <h1>Permissions List</h1>
             <div class="d-flex">
                 @foreach ($user->permissions as $permission)
-                    <form action="" method="post">
+                    <form action="{{route('admin.remove_permission_from_user',$user->id)}}" method="post">
                         @csrf
                         @method("delete")
                         <input type="hidden" name="permission_name" value="{{$permission->name}}">
@@ -59,7 +59,7 @@
                 @endforeach
             </div>
         @endif
-        <form action="" method="POST">
+        <form action="{{route('admin.assign_permission_to_user',$user->id)}}" method="POST">
             @csrf
             @method('POST')
             <label for="" class="for-controle">Permissions List</label>

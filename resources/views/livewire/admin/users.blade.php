@@ -37,14 +37,9 @@
                                     <button class="btn btn-danger" wire:click="delete({{$item->id}})">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
-                                    <form action="{{route('admin.user_info')}}" method="post">
-                                        @csrf
-                                        @method("GET")
-                                        <input type="hidden" name="user_id" value="{{$item->id}}">
-                                        <button type="submit" class="btn btn-success">
-                                            <i class="fa-solid fa-eye"></i>
-                                        </button>
-                                    </form>
+                                    <a href="{{ route('admin.user_info',$item->id) }}" class="btn btn-success">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </a>
 
                                 </td>
                             </tr>
