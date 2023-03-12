@@ -9,7 +9,7 @@
     <title>AdminLTE 3 | Dashboard 3</title>
 
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{asset('assets/adminlte/plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/adminlte/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- IonIcons -->
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
@@ -18,8 +18,9 @@
     @livewireStyles
 
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{{asset('assets/adminlte/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/adminlte/dist/css/adminlte.min.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
@@ -56,7 +57,7 @@
                         {{ auth()->user()->name }}
 
                         {{-- <i class="far fa-comments"></i> --}}
-          {{-- <span class="badge badge-danger navbar-badge">3</span> --}}
+                        {{-- <span class="badge badge-danger navbar-badge">3</span> --}}
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <a href="#" class="dropdown-item text-center">
@@ -67,7 +68,7 @@
                             @csrf
 
                             <x-dropdown-link style="color: black ; text-align: center" :href="route('logout')"
-                                    onclick="event.preventDefault();
+                                onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
@@ -85,7 +86,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="{{asset('assets/adminlte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo"
+                <img src="{{ asset('assets/adminlte/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">AdminLTE 3</span>
             </a>
@@ -95,11 +96,11 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{asset('assets/adminlte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2"
-                            alt="User Image">
+                        <img src="{{ asset('assets/adminlte/dist/img/user2-160x160.jpg') }}"
+                            class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">{{auth()->user()->name}}</a>
+                        <a href="#" class="d-block">{{ auth()->user()->name }}</a>
                     </div>
                 </div>
 
@@ -110,10 +111,19 @@
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="{{route('admin.categories')}}" class="nav-link">
+                            <a href="{{ route('admin.categories') }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     categories
+                                    {{-- <span class="right badge badge-danger">New</span> --}}
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.users_list') }}" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    all users
                                     {{-- <span class="right badge badge-danger">New</span> --}}
                                 </p>
                             </a>
@@ -122,16 +132,32 @@
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-copy"></i>
                                 <p>
-                                    Layout Options
+                                    User list
                                     <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right">6</span>
+                                    {{-- <span class="badge badge-info right">6</span> --}}
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>mes annonces</p>
+                                        <p>Admins</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Users</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Fournisseurs</p>
                                     </a>
                                 </li>
                             </ul>
@@ -570,21 +596,22 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-
-            @yield('content')
-        <!-- ./wrapper -->
-
+        <div class="content-wrapper">
+            <div class="container">
+                @yield('content')
+            </div>
+        </div>
         <!-- REQUIRED SCRIPTS -->
 
         <!-- jQuery -->
-        <script src="{{asset('assets/adminlte/plugins/jquery/jquery.min.js')}}"></script>
+        <script src="{{ asset('assets/adminlte/plugins/jquery/jquery.min.js') }}"></script>
         <!-- Bootstraassets/adminlte/p -->
-        <script src="{{asset('assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{ asset('assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <!-- AdminLTEassets/adminlte/ -->
-        <script src="{{asset('assets/adminlte/dist/js/adminlte.js')}}"></script>
-        <script src="{{asset('assets/adminlte/plugins/chart.js/Chart.min.js')}}"></script>
-        <script src="{{asset('assets/adminlte/dist/js/demo.js')}}"></script>
-        <script src="{{asset('assets/adminlte/dist/js/pages/dashboard3.js')}}"></script>
+        <script src="{{ asset('assets/adminlte/dist/js/adminlte.js') }}"></script>
+        <script src="{{ asset('assets/adminlte/plugins/chart.js/Chart.min.js') }}"></script>
+        <script src="{{ asset('assets/adminlte/dist/js/demo.js') }}"></script>
+        <script src="{{ asset('assets/adminlte/dist/js/pages/dashboard3.js') }}"></script>
         @yield('scripts')
         @livewireScripts
 

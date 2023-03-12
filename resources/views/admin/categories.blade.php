@@ -1,13 +1,7 @@
-@extends("admin.master.master")
+@extends('admin.master.master')
 
 
 
-@section("content")
-    <div class="content-wrapper">
-        <div class="container">
-            <livewire:admin.categories />
-        </div>
-    </div>
+@section('content')
+    <livewire:admin.categories />
 @endsection
-
-
