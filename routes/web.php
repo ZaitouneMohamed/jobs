@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\HomeController as AdminHomeController;
 use App\Http\Controllers\fournisseur\homeController as FournisseurHomeController;
 use App\Http\Controllers\job\jobController;
 use App\Http\Controllers\langController;
@@ -32,6 +33,8 @@ Route::get('job_detail/{id}', [jobController::class , 'job_details'] )->name('jo
 Route::post('job_search', [jobController::class , 'job_search'] )->name('job_search');
 
 Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group(function() {
+    Route::get('all_users', [AdminHomeController::class , 'users_list'] )->name('users_list');
+    Route::get('view_user', [AdminHomeController::class , 'view_user'] )->name('user_info');
     Route::get('/', function () {
         return view('admin.index');
     });
