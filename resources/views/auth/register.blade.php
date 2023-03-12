@@ -3,10 +3,13 @@
         @csrf
 
         <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="'role'" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="role" :value="old('name')" required autofocus autocomplete="role" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        <div class="mt-4">
+            <x-input-label for="email" :value="'role'" />
+            <select class="w-full" id="type" name="role">
+                <option value="user">user</option>
+                <option value="fournisseur">fournisseur</option>
+            </select>
+            <x-input-error :messages="$errors->get('role')" class="mt-2" />
         </div>
         <div>
             <x-input-label for="name" :value="__('Name')" />

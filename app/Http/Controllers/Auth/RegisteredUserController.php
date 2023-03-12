@@ -32,34 +32,23 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'role' => ['required', 'string'],
+            'role' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        event(new Registered($user));
+            Auth::login($user);
         if ($request->role == "user") {
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-            ])->assignRole('user');
-            event(new Registered($user));
-
-            Auth::login($user);
-
-            
-
+            $user->assignRole('user');
             return redirect()->route('user.index');
-        } else {
-            $user = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'password' => Hash::make($request->password),
-            ])->assignRole('fournisseur');
-            event(new Registered($user));
-
-            Auth::login($user);
-
+        }else {
+            $user->assignRole('fournisseur');
             return redirect()->route('fournisseur.index');
         }
     }
