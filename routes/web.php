@@ -8,16 +8,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\user\homeController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('job.index');
@@ -33,8 +23,14 @@ Route::get('job_detail/{id}', [jobController::class , 'job_details'] )->name('jo
 Route::post('job_search', [jobController::class , 'job_search'] )->name('job_search');
 
 Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group(function() {
-    Route::get('all_users', [AdminHomeController::class , 'users_list'] )->name('users_list');
-    Route::get('view_user', [AdminHomeController::class , 'view_user'] )->name('user_info');
+    Route::controller(AdminHomeController::class)->group(function () {
+        Route::get('all_users',  'users_list' )->name('users_list');
+        Route::get('view_user/{id}',  'view_user')->name('user_info');
+        Route::post('assign_role_to_user/{id}',  'assign_role_to_user')->name('assign_role_to_user');
+        Route::delete('remove_role_from_user/{id}',  'remove_role_from_user')->name('remove_role_from_user');
+        Route::post('assign_permission_to_user/{id}',  'assign_permission_to_user')->name('assign_permission_to_user');
+        Route::delete('remove_permission_from_user/{id}',  'remove_permission_from_user')->name('remove_permission_from_user');
+    });
     Route::get('/', function () {
         return view('admin.index');
     });
@@ -58,7 +54,7 @@ Route::middleware(['auth','role:fournisseur'])->name('fournisseur.')->prefix('is
 });
 Route::middleware(['auth','role:user'])->name('user.')->prefix('user')->group(function() {
     Route::controller(homeController::class)->group(function () {
-        Route::get('/' ,'index')->name('index');
+        Route::get('/' ,'index')->name('index')->middleware("permission:permission 1");
         Route::get('profile' , 'profile')->name('profile');
         Route::get('edit_profile' , 'edit_profile')->name('profile.edit');
         Route::post('update_profile' , 'update_profile')->name('profile.update');
