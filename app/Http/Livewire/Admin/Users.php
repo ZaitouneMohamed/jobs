@@ -18,4 +18,9 @@ class Users extends Component
     public function getUsersProperty() {
         return User::select('id','name','email')->paginate(4);
     }
+
+    public function delete($id) {
+        User::find($id)->delete();
+        $this->getUsersProperty();
+    }
 }
