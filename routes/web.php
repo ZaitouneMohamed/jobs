@@ -22,7 +22,7 @@ Route::get('/job_list', function () {
 Route::get('job_detail/{id}', [jobController::class , 'job_details'] )->name('job_detail');
 Route::post('job_search', [jobController::class , 'job_search'] )->name('job_search');
 
-Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group(function() {
+Route::middleware(['auth','role:admin','active'])->name('admin.')->prefix('admin')->group(function() {
     Route::controller(AdminHomeController::class)->group(function () {
         Route::get('all_users',  'users_list' )->name('users_list');
         Route::get('view_user/{id}',  'view_user')->name('user_info');
@@ -39,7 +39,7 @@ Route::middleware(['auth','role:admin'])->name('admin.')->prefix('admin')->group
     })->name('categories');
 });
 
-Route::middleware(['auth','role:fournisseur'])->name('fournisseur.')->prefix('is-admin')->group(function() {
+Route::middleware(['auth','role:fournisseur','active'])->name('fournisseur.')->prefix('is-admin')->group(function() {
     Route::get('/', function () {
         return view('company.index');
     })->name('index');
@@ -52,9 +52,9 @@ Route::middleware(['auth','role:fournisseur'])->name('fournisseur.')->prefix('is
     Route::get('/user_on_annonce/{id}' , [FournisseurHomeController::class , 'user_pending_on_job' ])->name('user_on_annonce');
 
 });
-Route::middleware(['auth','role:user'])->name('user.')->prefix('user')->group(function() {
+Route::middleware(['auth','role:user','active'])->name('user.')->prefix('user')->group(function() {
     Route::controller(homeController::class)->group(function () {
-        Route::get('/' ,'index')->name('index')->middleware("permission:permission 1");
+        Route::get('/' ,'index')->name('index');
         Route::get('profile' , 'profile')->name('profile');
         Route::get('edit_profile' , 'edit_profile')->name('profile.edit');
         Route::post('update_profile' , 'update_profile')->name('profile.update');
