@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\job;
 
+use App\Events\viewIncrement;
 use App\Http\Controllers\Controller;
 use App\Models\annonce;
 use App\Models\company;
@@ -13,7 +14,8 @@ class jobController extends Controller
     public function job_details($id)
     {
         $job = annonce::find($id);
-        $job->increment('visits');
+        // $job->increment('visits');
+        event(new viewIncrement($job));
         return view('job.job_detail',compact("job"));
     }
 
